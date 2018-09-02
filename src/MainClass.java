@@ -23,6 +23,9 @@ public class MainClass {
         graph.editValueOfNode("2",15);
         //edit the value of a node to the sum of its children
         graph.setValuetoSumOfChildren("1");
-        
+
+        // 8th part --  Longest chain of the genesis node (Prints the longest chain)
+        System.out.println(graph.LongestPath("1"));
+
     }
 }

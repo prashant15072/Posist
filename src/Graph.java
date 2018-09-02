@@ -4,6 +4,8 @@ public class Graph {
 
     private ArrayList<Node> adjList;
     private Node genesisNode;
+    private ArrayList<ArrayList<String>> output;
+    public int count=0,max=Integer.MIN_VALUE;
 
     public Graph(){
         adjList = new ArrayList<>();
@@ -64,5 +66,41 @@ public class Graph {
             }
         }
         node.getData().setValue(sumOfchild);
+    }
+
+    public ArrayList<String> LongestPath(String str){
+        ArrayList<String> paths=new ArrayList<>();
+        output=new ArrayList<>();
+        Node s=findNode(str);
+        paths.add(s.getNodeId());
+        longestPathUtil(s,paths);
+        int max=Integer.MIN_VALUE,maxIndex=0;
+        for (int i=0;i<output.size();i++){
+            if (output.get(i).size()>max){
+                max=output.get(i).size();
+                maxIndex=i;
+            }
+        }
+
+        return output.get(maxIndex);
+    }
+
+    public void longestPathUtil(Node s,ArrayList<String> paths){
+
+        if (s.getChildReferenceNodeId()==null){
+            if (paths.size()>=max) {
+                max = paths.size();
+                output.add(new ArrayList<>(paths));
+            }
+        }
+        if (s.getChildReferenceNodeId()!=null){
+            for (String i: s.getChildReferenceNodeId()){
+                Node n=findNode(i);
+                paths.add(i);
+                longestPathUtil(n,paths);
+                paths.remove(i);
+            }
+        }
+
     }
 }
