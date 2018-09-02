@@ -4,9 +4,10 @@ public class MainClass {
         Graph graph=new Graph();
 
         // 1st part -- Creating genesis Node
-//        graph.addNode("Data",1,"1","null",null,"1","hashvalue");
+        Data data=new Data(1,30,"A");
+        graph.addNode(data,1,"1","null",null,"1","hashvalue");
 
         // 2nd part -- Creating set of child Nodes of a particular node
-
+        
     }
 }
