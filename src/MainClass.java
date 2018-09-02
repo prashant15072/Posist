@@ -13,5 +13,9 @@ public class MainClass {
             //pointing towards genesis node , hence the parent id is 1 that is of genesis node
         graph.addNode(data2,2,"2","1",null,"1","hashvalue");
         graph.addNode(data3,3,"3","1",null,"1","hashvalue");
+
+        // 3rd part -- ChildNode originating from a node lets say B , since the nodeId of B=2 hence the referenceNodeId=2
+        Data data4=new Data(4,7,"D");
+        graph.addNode(data4,4,"4","2",null,"1","hashvalue");
     }
 }
