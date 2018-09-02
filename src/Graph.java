@@ -11,7 +11,7 @@ public class Graph {
 
     public Node findNode(String nodeId){
         for (int i=0;i<adjList.size();i++){
-            if (adjList.get(i).equals(nodeId)){
+            if (adjList.get(i).getNodeId().equals(nodeId)){
                 return adjList.get(i);
             }
         }
@@ -21,8 +21,10 @@ public class Graph {
     public boolean checkCondition(Node parent,ArrayList<String> childReferenceNodeId,Data data){
         int parentVal=parent.getData().getValue();
         int sumOfchild=0;
-        for (int i=0;i<childReferenceNodeId.size();i++){
-            sumOfchild+=findNode(childReferenceNodeId.get(i)).getData().getValue();
+        if (childReferenceNodeId!=null) {
+            for (int i = 0; i < childReferenceNodeId.size(); i++) {
+                sumOfchild += findNode(childReferenceNodeId.get(i)).getData().getValue();
+            }
         }
         if (sumOfchild>parentVal){
             return false;

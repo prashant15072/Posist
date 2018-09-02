@@ -50,6 +50,9 @@ public class Node {
     }
 
     public void addToChildren(String NodeId){
-        childReferenceNodeId.add(NodeId);
+        if (childReferenceNodeId==null) {
+            childReferenceNodeId=new ArrayList<>();
+        }
+        this.childReferenceNodeId.add(NodeId);
     }
 }
