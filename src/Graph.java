@@ -49,7 +49,20 @@ public class Graph {
         }
     }
 
-    public Node getGenesisNode(){
-        return genesisNode;
+    public void editValueOfNode(String NodeId,int value){
+        Node node=findNode(NodeId);
+        node.getData().setValue(value);
+    }
+
+    public void setValuetoSumOfChildren(String NodeId){
+        Node node=findNode(NodeId);
+        ArrayList<String> child=node.getChildReferenceNodeId();
+        int sumOfchild=0;
+        if (child!=null) {
+            for (int i = 0; i < child.size(); i++) {
+                sumOfchild += findNode(child.get(i)).getData().getValue();
+            }
+        }
+        node.getData().setValue(sumOfchild);
     }
 }

@@ -17,5 +17,12 @@ public class MainClass {
         // 3rd part -- ChildNode originating from a node lets say B , since the nodeId of B=2 hence the referenceNodeId=2
         Data data4=new Data(4,7,"D");
         graph.addNode(data4,4,"4","2",null,"1","hashvalue");
+
+        // 6th part
+        //edit the value of a node
+        graph.editValueOfNode("2",15);
+        //edit the value of a node to the sum of its children
+        graph.setValuetoSumOfChildren("1");
+        
     }
 }
