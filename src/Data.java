@@ -9,4 +9,8 @@ public class Data {
         this.name=name;
     }
 
+    public int getValue(){
+        return value;
+    }
+
 }

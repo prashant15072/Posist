@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Node {
 
@@ -6,9 +7,7 @@ public class Node {
     private int nodeNumber;
     private ArrayList<String> childReferenceNodeId;
     private Data data;
-
-
-    // Create a timeStamp
+    java.sql.Timestamp timestamp;
 
     public Node(Data data,int nodeNumber,String nodeId,String referenceNodeId,ArrayList<String> childReferenceNodeId
     ,String genesisReferenceNodeId,String hashValue){
@@ -19,6 +18,9 @@ public class Node {
         this.childReferenceNodeId=childReferenceNodeId;
         this.genesisReferenceNodeId=genesisReferenceNodeId;
         this.hashValue=hashValue;
+        Calendar calendar = Calendar.getInstance();
+        java.util.Date now = calendar.getTime();
+        this.timestamp = new java.sql.Timestamp(now.getTime());
 
     }
 
@@ -42,6 +44,9 @@ public class Node {
     }
     public String getHashValue(){
         return hashValue;
+    }
+    public java.sql.Timestamp getTimestamp(){
+        return timestamp;
     }
 
     public void addToChildren(String NodeId){
